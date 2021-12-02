@@ -138,6 +138,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         CampoTotalOrcamento = new javax.swing.JFormattedTextField();
         BotaoConfirmarOrcamento = new javax.swing.JButton();
         BotaoCancelarOrcamento = new javax.swing.JButton();
+        jLabel51 = new javax.swing.JLabel();
+        CampoDesconto = new javax.swing.JFormattedTextField();
+        BotaoDesconto = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
@@ -390,7 +393,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Nimbus Sans L", 0, 14)); // NOI18N
-        jLabel6.setText("Preço");
+        jLabel6.setText("Preço Unitário");
 
         CampoPrecoProd.setEditable(false);
         CampoPrecoProd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
@@ -425,7 +428,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         CampoMedidaProd.setFont(new java.awt.Font("Nimbus Sans L", 0, 14)); // NOI18N
-        CampoMedidaProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "kg", "unidade", "litro" }));
+        CampoMedidaProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "kg", "unidade", "litro", "pente 30 unidades", "dúzia", "caixa com 12 litros", "lata 800g", "caixa 200g", "pacote 5kg" }));
         CampoMedidaProd.setSelectedIndex(-1);
         CampoMedidaProd.setEnabled(false);
 
@@ -895,7 +898,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel41.setText("Mão de Obra");
 
         CampoMaoObraOrcamento.setFont(new java.awt.Font("Nimbus Sans L", 0, 14)); // NOI18N
-        CampoMaoObraOrcamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10%", "20%", "30%", "40%", "50%" }));
+        CampoMaoObraOrcamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" }));
         CampoMaoObraOrcamento.setSelectedIndex(-1);
         CampoMaoObraOrcamento.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -930,6 +933,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabel51.setFont(new java.awt.Font("Nimbus Sans L", 0, 14)); // NOI18N
+        jLabel51.setText("Desconto");
+
+        CampoDesconto.setEditable(false);
+        CampoDesconto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        CampoDesconto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CampoDesconto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CampoDescontoKeyReleased(evt);
+            }
+        });
+
+        BotaoDesconto.setFont(new java.awt.Font("Nimbus Sans L", 0, 14)); // NOI18N
+        BotaoDesconto.setText("DAR DESCONTO");
+        BotaoDesconto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoDescontoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
         jPanel19Layout.setHorizontalGroup(
@@ -941,21 +964,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel40)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CampoPrecoProdOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(jLabel41)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CampoMaoObraOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(jLabel51)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CampoDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotaoDesconto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel42)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CampoTotalOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(CampoTotalOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(BotaoCancelarOrcamento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BotaoConfirmarOrcamento)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -967,7 +996,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel41)
                     .addComponent(CampoMaoObraOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel42)
-                    .addComponent(CampoTotalOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CampoTotalOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel51)
+                        .addComponent(CampoDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BotaoDesconto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoConfirmarOrcamento)
@@ -1214,7 +1247,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel27)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1922,7 +1955,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             preencherTabelaFinalizarPedido(orc);
             removerEstoque(orc);
             preencherProdutos();
-            
             AbaFuncao.setSelectedIndex(3);
         }else{
             JOptionPane.showMessageDialog(null, "Corrija os problemas relatados e tente novamente","Atenção",JOptionPane.INFORMATION_MESSAGE);
@@ -2086,6 +2118,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void CampoMaoObraOrcamentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CampoMaoObraOrcamentoItemStateChanged
         calcularTotalOrcamento(orc.getPrecoProdutos());
+        CampoDesconto.setEditable(true);
     }//GEN-LAST:event_CampoMaoObraOrcamentoItemStateChanged
 
     private void BotaoPesquisaPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPesquisaPedidosActionPerformed
@@ -2369,6 +2402,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_PedidoReceberSimMouseClicked
 
+    private void CampoDescontoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoDescontoKeyReleased
+
+    }//GEN-LAST:event_CampoDescontoKeyReleased
+
+    private void BotaoDescontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoDescontoActionPerformed
+        if(validarDesconto()){
+            float desconto = Float.parseFloat(CampoDesconto.getText().replace(",", "."));
+            darDesconto(desconto);
+        }
+       
+    }//GEN-LAST:event_BotaoDescontoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2410,6 +2455,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotaoCadastrar;
     private javax.swing.JButton BotaoCancelarOrcamento;
     private javax.swing.JButton BotaoConfirmarOrcamento;
+    private javax.swing.JButton BotaoDesconto;
     private javax.swing.JButton BotaoEditar;
     private javax.swing.JButton BotaoPedir;
     private javax.swing.JButton BotaoPesquisaPedidos;
@@ -2422,6 +2468,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField CampoDataFim;
     private javax.swing.JFormattedTextField CampoDataInicio;
     private javax.swing.JFormattedTextField CampoDataOrcamento;
+    private javax.swing.JFormattedTextField CampoDesconto;
     private javax.swing.JFormattedTextField CampoDespesaPedidos;
     private javax.swing.JTextField CampoDimensaoOrcamento;
     private javax.swing.JTextField CampoIdCliente;
@@ -2500,6 +2547,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2560,9 +2608,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Produto prod = new Produto();
             ProdutoDAO proddao = new ProdutoDAO();
             prod.setNome(CampoProduto.getText().toUpperCase());
-            prod.setQuantidade(Float.parseFloat(CampoQtdProd.getText().replaceAll(",", ".")));
             prod.setMedida(CampoMedidaProd.getSelectedItem().toString());
             prod.setPreco(Float.parseFloat(CampoPrecoProd.getText().replaceAll(",", ".")));
+            prod.setQuantidade(Float.parseFloat(CampoQtdProd.getText().replaceAll(",", ".")),prod.getMedida());        
+            
             try{
                 proddao.adicionar(prod);
             }catch(Exception erro){
@@ -2584,9 +2633,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             ProdutoDAO proddao = new ProdutoDAO();
             prod.setId(Long.parseLong(CampoIdProd.getText()));
             prod.setNome(CampoProduto.getText().toUpperCase());
-            prod.setQuantidade(Float.parseFloat(CampoQtdProd.getText().replaceAll(",", ".")));
             prod.setMedida(CampoMedidaProd.getSelectedItem().toString());
             prod.setPreco(Float.parseFloat(CampoPrecoProd.getText().replaceAll(",", ".")));
+            prod.setQuantidade(Float.parseFloat(CampoQtdProd.getText().replaceAll(",", ".")),prod.getMedida());
+            
                 
             if(JOptionPane.showConfirmDialog(null, "Ao alterar esse registro, ele será modificado permanentemente da base de dados. Deseja prosseguir?","Confirmar Alteração!",JOptionPane.YES_NO_OPTION)== 0){
                     proddao.alterar(prod);
@@ -2918,7 +2968,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void limparOrcamento() {
         CampoClienteOrcamento.setText("");
-        CampoDataOrcamento.setText("  /  /    ");
+        CampoDataOrcamento.setText("");
         CampoQtdPessoasOrcamento.setSelectedIndex(-1);
         buttonGroup1.clearSelection();
         CampoDimensaoOrcamento.setText("");
@@ -3047,6 +3097,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
             break;
             case 4:
                 porc = ((float) (0.5* preco));
+                orc.setMaoObra(CampoMaoObraOrcamento.getSelectedItem().toString());
+                orc.setPrecoVenda(preco + porc);
+                CampoTotalOrcamento.setText(String.valueOf(orc.getPrecoVenda()));    
+            break;
+             case 5:
+                porc = ((float) (0.6* preco));
+                orc.setMaoObra(CampoMaoObraOrcamento.getSelectedItem().toString());
+                orc.setPrecoVenda(preco + porc);
+                CampoTotalOrcamento.setText(String.valueOf(orc.getPrecoVenda()));    
+            break;
+             case 6:
+                porc = ((float) (0.7* preco));
+                orc.setMaoObra(CampoMaoObraOrcamento.getSelectedItem().toString());
+                orc.setPrecoVenda(preco + porc);
+                CampoTotalOrcamento.setText(String.valueOf(orc.getPrecoVenda()));    
+            break;
+             case 7:
+                porc = ((float) (0.8* preco));
+                orc.setMaoObra(CampoMaoObraOrcamento.getSelectedItem().toString());
+                orc.setPrecoVenda(preco + porc);
+                CampoTotalOrcamento.setText(String.valueOf(orc.getPrecoVenda()));    
+            break;
+             case 8:
+                porc = ((float) (0.9* preco));
+                orc.setMaoObra(CampoMaoObraOrcamento.getSelectedItem().toString());
+                orc.setPrecoVenda(preco + porc);
+                CampoTotalOrcamento.setText(String.valueOf(orc.getPrecoVenda()));    
+            break;
+             case 9:
+                porc = 1 * preco;
                 orc.setMaoObra(CampoMaoObraOrcamento.getSelectedItem().toString());
                 orc.setPrecoVenda(preco + porc);
                 CampoTotalOrcamento.setText(String.valueOf(orc.getPrecoVenda()));    
@@ -3294,5 +3374,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Verifique a data digitada, corrija os erros e tente novamente!", "Data Incorreta", JOptionPane.ERROR_MESSAGE);
         }
         return retorno; 
+    }
+
+    private void darDesconto(float desconto) {
+        float precoSemDesconto = orc.getPrecoVenda();
+        orc.setPrecoVenda(precoSemDesconto - desconto);
+        CampoTotalOrcamento.setText(String.valueOf(orc.getPrecoVenda()));         
+    }
+
+    private boolean validarDesconto() {
+        boolean retorno = false;
+        if (CampoDesconto.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "O campo desconto é necessário e não pode ficar em branco","Erro de Campo Vazio",JOptionPane.ERROR_MESSAGE);
+        }else{
+            try{
+              float preco =  Float.parseFloat(CampoDesconto.getText().replaceAll(",", "."));
+              retorno=true;
+            }catch(Exception erro){
+                JOptionPane.showMessageDialog(null, "O campo preco do produto deve conter apenas números e uma vírgula","Erro de Caracteres Inválidos",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        return retorno;
     }
 }
