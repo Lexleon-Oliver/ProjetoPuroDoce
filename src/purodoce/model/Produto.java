@@ -29,13 +29,48 @@ public class Produto {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    public void setQuantidade(float qtd, String medida) {
+        switch (medida){
+            case "kg":
+                this.quantidade=qtd;
+            break;
+            case "unidade":
+                this.quantidade=qtd;
+            break;
+            case "litro":
+                this.quantidade=qtd;
+            break;
+             case "pente 30 unidades":
+                this.quantidade=qtd*30;
+                this.setMedida("unidade");
+            break;
+             case "dúzia":
+                this.quantidade=qtd*12;
+                this.setMedida("unidade");
+            break;
+             case "caixa com 12 litros":
+                this.quantidade=qtd*12;
+                this.setMedida("litro");
+            break;
+             case "lata 800g":
+                this.quantidade=qtd*0.8f;
+                this.setMedida("kg");
+            break;
+             case "caixa 200g":
+                this.quantidade=qtd*0.2f;
+                this.setMedida("kg");
+            break;
+             case "pacote 5kg":
+                this.quantidade=qtd*5;
+                this.setMedida("kg");
+            break;
+
+        }
+    }
 
     public float getQuantidade() {
         return quantidade;
-    }
-
-    public void setQuantidade(float quantidade) {
-        this.quantidade = quantidade;
     }
 
     public String getMedida() {

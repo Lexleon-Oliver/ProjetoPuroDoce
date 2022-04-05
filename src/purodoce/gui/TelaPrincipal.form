@@ -1190,18 +1190,20 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="CampoPrecoProdOrcamento" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="CampoMaoObraOrcamento" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="CampoTotalOrcamento" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CampoDesconto" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="BotaoDesconto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CampoPrecoProdOrcamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CampoMaoObraOrcamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CampoTotalOrcamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="BotaoDesconto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -1861,7 +1863,7 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="jPanel14" min="-2" pref="203" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel21" min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="jPanel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2073,7 +2075,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="13" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="CampoIdPedidoReceber" alignment="3" min="-2" max="-2" attributes="0"/>

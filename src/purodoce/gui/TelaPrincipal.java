@@ -990,17 +990,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel40)
-                    .addComponent(CampoPrecoProdOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel41)
-                    .addComponent(CampoMaoObraOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel42)
-                    .addComponent(CampoTotalOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel51)
                         .addComponent(CampoDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BotaoDesconto))
+                    .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel40)
+                        .addComponent(CampoPrecoProdOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel41)
+                        .addComponent(CampoMaoObraOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel42)
+                        .addComponent(CampoTotalOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BotaoDesconto)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoConfirmarOrcamento)
@@ -1608,7 +1609,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel21Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
                     .addComponent(CampoIdPedidoReceber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1630,7 +1631,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(113, 113, 113))
         );
 
@@ -2610,7 +2611,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             prod.setNome(CampoProduto.getText().toUpperCase());
             prod.setMedida(CampoMedidaProd.getSelectedItem().toString());
             prod.setPreco(Float.parseFloat(CampoPrecoProd.getText().replaceAll(",", ".")));
-            prod.setQuantidade(Float.parseFloat(CampoQtdProd.getText().replaceAll(",", ".")),prod.getMedida());        
+            prod.setQuantidade(Float.parseFloat(CampoQtdProd.getText().replaceAll(",", ".")),prod.getMedida());   
+
             
             try{
                 proddao.adicionar(prod);
@@ -2636,6 +2638,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             prod.setMedida(CampoMedidaProd.getSelectedItem().toString());
             prod.setPreco(Float.parseFloat(CampoPrecoProd.getText().replaceAll(",", ".")));
             prod.setQuantidade(Float.parseFloat(CampoQtdProd.getText().replaceAll(",", ".")),prod.getMedida());
+
             
                 
             if(JOptionPane.showConfirmDialog(null, "Ao alterar esse registro, ele será modificado permanentemente da base de dados. Deseja prosseguir?","Confirmar Alteração!",JOptionPane.YES_NO_OPTION)== 0){
@@ -3314,7 +3317,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Produto prod = new Produto();
             ProdutoDAO proddao = new ProdutoDAO();
             prod = proddao.listarPorNome(prods.getNome());
-            prod.setQuantidade(quantidade);
+            prod.setQuantidade(quantidade,prod.getMedida());
             proddao.alterar(prod);
         }
     }

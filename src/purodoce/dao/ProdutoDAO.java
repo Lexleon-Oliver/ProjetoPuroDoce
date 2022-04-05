@@ -20,6 +20,7 @@ public class ProdutoDAO {
         Connection con = Conexao.conexao();
         PreparedStatement stmt = null;
         ResultSet rs = null;
+        String medida;
         
         List<Produto> produtos = new ArrayList<>();
 
@@ -32,8 +33,9 @@ public class ProdutoDAO {
                 Produto prod = new Produto();
                 prod.setId(rs.getLong("id"));
                 prod.setNome(rs.getString("nome"));
-                prod.setQuantidade(rs.getFloat("quantidade"));
-                prod.setMedida(rs.getString("medida"));
+                medida=rs.getString("medida");
+                prod.setQuantidade(rs.getFloat("quantidade"),medida);
+              
                 prod.setPreco(rs.getFloat("preco"));
                
                 produtos.add(prod);
@@ -113,6 +115,7 @@ public class ProdutoDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Produto produto = new Produto();
+        String medida;
 
         try {
             stmt = con.prepareStatement("SELECT * FROM produto WHERE id = ?");
@@ -123,7 +126,8 @@ public class ProdutoDAO {
 
                 produto.setId(rs.getLong("id"));
                 produto.setNome(rs.getString("nome"));
-                produto.setQuantidade(rs.getFloat("quantidade"));
+                medida=rs.getString("medida");
+                produto.setQuantidade(rs.getFloat("quantidade"),medida);
                 produto.setMedida(rs.getString("medida"));
                 produto.setPreco(rs.getFloat("preco"));
 
@@ -143,6 +147,7 @@ public class ProdutoDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Produto produto = new Produto();
+        String medida;
 
         try {
             stmt = con.prepareStatement("SELECT * FROM produto WHERE nome LIKE ?");
@@ -153,7 +158,8 @@ public class ProdutoDAO {
 
                 produto.setId(rs.getLong("id"));
                 produto.setNome(rs.getString("nome"));
-                produto.setQuantidade(rs.getFloat("quantidade"));
+                 medida=rs.getString("medida");
+                produto.setQuantidade(rs.getFloat("quantidade"),medida);
                 produto.setMedida(rs.getString("medida"));
                 produto.setPreco(rs.getFloat("preco"));
 
